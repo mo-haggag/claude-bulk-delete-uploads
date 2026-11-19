@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en" data-mode="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Live demo · Claude bulk delete uploads</title>
+  <meta name="description" content="Try the userscript that bulk deletes your claude.ai uploads, on a copy of the Uploaded files page with fake files.">
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+  <div class="demo-bar" role="note">
+    <span><strong>Demo with fake files.</strong> Nothing here touches your Claude account. Not affiliated with Anthropic.</span>
+    <span class="demo-actions">
+      <button type="button" id="theme">Dark mode</button>
+      <button type="button" id="reset">Reset demo files</button>
+      <a href="https://github.com/mo-haggag/claude-bulk-delete-uploads">View on GitHub</a>
+      <a class="primary" href="../claude-bulk-delete-uploads.user.js">Install the userscript</a>
+    </span>
+  </div>
+
+  <div class="app">
+    <aside class="sidebar" aria-label="Chat app sidebar (decorative)">
+      <div class="brand">Chat app <span>(demo)</span></div>
+      <button class="side-item" type="button">+ New chat</button>
+      <button class="side-item" type="button">Chats</button>
+      <button class="side-item" type="button">Projects</button>
+      <div class="side-label">Recents</div>
+      <div class="side-recent">Trip planning for Kyoto</div>
+      <div class="side-recent">Fix the build error</div>
+      <div class="side-recent">Quarterly budget review</div>
+      <div class="side-recent">Lease agreement questions</div>
+      <div class="side-recent">Recipe from a photo</div>
+      <a class="side-user" href="#settings/data-privacy-controls">Demo user · Settings</a>
+    </aside>
+    <main class="chat-bg" aria-hidden="true"><div class="chat-hint">How can I help you today?</div></main>
+  </div>
+
+  <div class="overlay" id="overlay">
+    <div class="settings" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+      <header class="settings-head">
+        <h1 id="settings-title">Settings</h1>
+        <a class="close" href="#" aria-label="Close settings">×</a>
+      </header>
+      <div class="settings-body">
+        <nav class="settings-nav" aria-label="Settings sections">
+          <span class="nav-item">Account</span>
+          <span class="nav-item">Billing</span>
+          <span class="nav-item">Usage</span>
+          <span class="nav-sep"></span>
+          <span class="nav-item">Appearance</span>
+          <span class="nav-item">Capabilities</span>
+          <span class="nav-item">Notifications</span>
+          <a class="nav-item active" href="#settings/data-privacy-controls">Privacy</a>
+          <span class="nav-sep"></span>
+          <span class="nav-item">Code</span>
+        </nav>
+        <section class="settings-content" id="settings-content" aria-live="polite"></section>
+      </div>
+    </div>
+  </div>
+
+  <script src="mock-api.js"></script>
+  <script src="demo-app.js"></script>
+  <!-- The real userscript, unchanged. It finds the fake API above instead of claude.ai's. -->
+  <script src="../claude-bulk-delete-uploads.user.js"></script>
+</body>
+</html>
